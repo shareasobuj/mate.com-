@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daraz Clone - Online Shopping Marketplace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <div class="container flex-space">
+                <div class="top-links">
+                    <a href="#">Become a Seller</a>
+                    <a href="#">Help & Support</a>
+                    <a href="#">Daraz Affiliate Program</a>
+                </div>
+                <div class="auth-buttons" id="authSection">
+                    <span id="welcomeMsg"></span>
+                    <button id="loginBtn" onclick="toggleModal('loginModal')">Login</button>
+                    <button id="signupBtn" onclick="toggleModal('signupModal')">Sign Up</button>
+                    <button id="dashboardBtn" class="hidden" onclick="toggleDashboard()">My Dashboard</button>
+                    <button id="logoutBtn" class="hidden" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-header">
+            <div class="container flex-space">
+                <div class="logo">
+                    <h1 class="brand-color">daraz</h1>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search in Daraz..." id="searchInput">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <div class="cart-icon" onclick="toggleCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="cartCount">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="userDashboard" class="dashboard-section hidden">
+            <h2><i class="fa-solid fa-user"></i> User Dashboard</h2>
+            <div class="dashboard-grid">
+                <div class="db-card">
+                    <h3>Profile Info</h3>
+                    <p><strong>Name:</strong> <span id="dbName">Guest</span></p>
+                    <p><strong>Email:</strong> <span id="dbEmail">guest@example.com</span></p>
+                </div>
+                <div class="db-card">
+                    <h3>Recent Orders</h3>
+                    <p>No recent orders found.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="hero-banner">
+            <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&w=1200&q=80" alt="Daraz Banner">
+        </section>
+
+        <section class="products-section">
+            <h2 class="section-title">Flash Sale</h2>
+            <div class="products-grid" id="productsContainer">
+                </div>
+        </section>
+    </main>
+
+    <div id="cartSidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3>Shopping Cart</h3>
+            <span class="close-btn" onclick="toggleCart()">&times;</span>
+        </div>
+        <div id="cartItems" class="cart-items">
+            </div>
+        <div class="cart-footer">
+            <h4>Total: ৳<span id="cartTotal">0</span></h4>
+            <button class="checkout-btn" onclick="processPayment()">Proceed to Checkout (Mock Payment)</button>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <input type="email" id="loginEmail" placeholder="Enter Email" required>
+                <input type="password" id="loginPass" placeholder="Enter Password" required>
+                <button type="submit" class="btn-auth">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="toggleModal('signupModal')">&times;</span>
+            <h2>Sign Up</h2>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <input type="text" id="signUpName" placeholder="Full Name" required>
+                <input type="email" id="signUpEmail" placeholder="Email Address" required>
+                <input type="password" id="signUpPass" placeholder="Password" required>
+                <button type="submit" class="btn-auth">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Daraz Clone. Built for demonstration purposes.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+  </html>
